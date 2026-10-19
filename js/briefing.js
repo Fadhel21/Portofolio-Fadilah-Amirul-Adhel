@@ -175,7 +175,7 @@
   }
 
   var BUILD = [buildProjects, buildCerts, buildSkills, buildPubs, buildEdu, buildContact];
-  var SUB = ['5 builds, one level at a time', 'Credentials earned along the way', 'The gear behind every dashboard', 'Peer-reviewed research', 'Where the foundation began', 'Send the signal'];
+  var SUB = ['6 builds, one level at a time', 'Credentials earned along the way', 'The gear behind every dashboard', 'Peer-reviewed research', 'Where the foundation began', 'Send the signal'];
 
   /* ---------- render + choreography ---------- */
   function renderStage(i) {
