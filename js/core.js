@@ -66,7 +66,7 @@
   // typewriter role
   var roleEl = document.getElementById('role');
   if (roleEl) {
-    var words = ['Data Analyst', 'App Developer', 'Data Science', 'Gaming Enthusiast', 'Data Engineer', 'Data Visualization', 'Assistant Purchasing', 'Business Intelligence'];
+    var words = ['AI Developer', 'AI Data Analyst', 'AI Automation', 'AI Engineer', 'Data Engineer', 'Business Intelligence'];
     if (reduce) { roleEl.textContent = words[0]; }
     else {
       var wi = 0, ci = 0, deleting = false;

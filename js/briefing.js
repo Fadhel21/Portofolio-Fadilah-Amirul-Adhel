@@ -47,7 +47,7 @@
       return {
         img: c.querySelector('.proj-thumb img').src, tool: tool.textContent.trim(), title: q(c, 'h3'), desc: q(c, '.proj-desc'),
         tags: [].slice.call(c.querySelectorAll('.tag')).map(function (t) { return t.textContent.trim(); }),
-        href: c.querySelector('.proj-link').href, accent: getComputedStyle(tool).color,
+        shots: (c.dataset.shots || '').split(',').filter(Boolean), href: c.querySelector('.proj-link').href, accent: getComputedStyle(tool).color,
         problem: c.dataset.problem || '', approach: c.dataset.approach || '', result: c.dataset.result || '', insight: c.dataset.insight || ''
       };
     });
@@ -59,7 +59,7 @@
     var frame = h('div', 'pv__frame rv'), img = h('img', 'pv__img'); img.alt = '';
     frame.appendChild(img); frame.appendChild(h('div', 'pv__scan')); var shine = h('div', 'pv__shine'); frame.appendChild(shine);
     for (var k = 0; k < 4; k++) frame.appendChild(h('i')); var count = h('div', 'pv__count'); frame.appendChild(count);
-    var tabs = h('div', 'pv__tabs rv', null, { role: 'tablist', 'aria-label': 'Projects' }), ind = h('span', 'pv__ind');
+    var shotBar = h('div', 'pv__shots rv'), tabs = h('div', 'pv__tabs rv', null, { role: 'tablist', 'aria-label': 'Projects' }), ind = h('span', 'pv__ind');
     tabs.appendChild(ind);
     var tabEls = P.map(function (p, i) {
       var b = h('button', 'pv__tab', null, { type: 'button', role: 'tab', 'aria-label': 'Project ' + (i + 1) + ': ' + p.title });
@@ -75,15 +75,26 @@
     nb.addEventListener('click', function () { go((n + 1) % P.length, 1); });
     row.appendChild(cta); row.appendChild(arrows);
     [tool, t, d, cs, tg, row].forEach(function (e) { info.appendChild(e); });
-    [frame, tabs, info].forEach(function (e) { wrap.appendChild(e); });
+    [frame, shotBar, tabs, info].forEach(function (e) { wrap.appendChild(e); });
 
     function moveInd(instant) {
       var b = tabEls[n]; if (!b) return;
       ind.style.width = b.offsetWidth + 'px'; ind.style.transition = instant ? 'none' : ''; ind.style.transform = 'translateX(' + b.offsetLeft + 'px)';
       if (instant) { void ind.offsetWidth; ind.style.transition = ''; }
     }
+    function showShot(p, k) {
+      img.src = p.shots[k] || p.img;
+      [].forEach.call(shotBar.children, function (b, x) { b.setAttribute('aria-pressed', x === k ? 'true' : 'false'); });
+    }
     function fill(i) {
-      var p = P[i]; img.src = p.img; count.textContent = '0' + (i + 1) + ' / 0' + P.length; tool.textContent = p.tool; t.textContent = p.title; d.textContent = p.desc;
+      var p = P[i]; img.src = p.img;
+      shotBar.innerHTML = ''; shotBar.hidden = p.shots.length < 2;
+      p.shots.forEach(function (u, k) {
+        var b = h('button', 'pv__shot', null, { type: 'button', 'aria-label': 'Screenshot ' + (k + 1) + ' of ' + p.shots.length, 'aria-pressed': k === 0 ? 'true' : 'false' });
+        var im = h('img'); im.src = u; im.alt = ''; im.loading = 'lazy'; b.appendChild(im);
+        b.addEventListener('click', function () { anim(img, [{ opacity: .15 }, { opacity: 1 }], { duration: 300, easing: EO }); showShot(p, k); });
+        shotBar.appendChild(b);
+      }); count.textContent = '0' + (i + 1) + ' / 0' + P.length; tool.textContent = p.tool; t.textContent = p.title; d.textContent = p.desc;
       cs.innerHTML = '';
       [['Problem', p.problem, ''], ['Approach', p.approach, ''], ['Headline numbers', p.result, 'res'], ['Insight', p.insight, '']].forEach(function (r) {
         if (!r[1]) return; var row = h('div', r[2]); row.appendChild(h('b', '', r[0])); row.appendChild(h('p', '', r[1])); cs.appendChild(row);
@@ -132,14 +143,17 @@
   }
 
   function buildSkills(root) {
-    root.appendChild(h('p', 'dl-k rv', '01 / Tools & technologies'));
-    var g = h('div', 'dl-tools rv');
-    [].slice.call(document.querySelectorAll('#skills .tool')).forEach(function (t) {
-      var d = h('div', 'dl-tool'), im = h('img'); im.src = t.querySelector('img').src; im.alt = ''; im.loading = 'lazy'; d.appendChild(im); d.appendChild(h('span', '', q(t, 'span'))); g.appendChild(d);
+    [].slice.call(document.querySelectorAll('#skills .skill-group')).forEach(function (grp) {
+      var sub = grp.querySelector('.sub');
+      root.appendChild(h('p', 'dl-k rv', sub.textContent.replace(/\s+/g, ' ').trim()));
+      var g = h('div', 'dl-tools rv');
+      [].slice.call(grp.querySelectorAll('.tool')).forEach(function (t) {
+        var d = h('div', 'dl-tool'), src = t.querySelector('img');
+        if (src) { var im = h('img'); im.src = src.src; im.alt = ''; im.loading = 'lazy'; if (src.classList.contains('mono')) im.className = 'mono'; d.appendChild(im); }
+        d.appendChild(h('span', '', q(t, 'span'))); g.appendChild(d);
+      });
+      root.appendChild(g);
     });
-    root.appendChild(g);
-    root.appendChild(h('p', 'dl-k rv', '02 / Workflow'));
-    var ul = h('ul', 'dl-flow rv'); [].slice.call(document.querySelectorAll('#skills .flow li')).forEach(function (li) { ul.appendChild(h('li', '', li.textContent.trim())); }); root.appendChild(ul);
   }
 
   function buildPubs(root) {
@@ -175,7 +189,7 @@
   }
 
   var BUILD = [buildProjects, buildCerts, buildSkills, buildPubs, buildEdu, buildContact];
-  var SUB = ['6 builds, one level at a time', 'Credentials earned along the way', 'The gear behind every dashboard', 'Peer-reviewed research', 'Where the foundation began', 'Send the signal'];
+  var SUB = ['6 builds, one level at a time', 'Credentials earned along the way', 'The gear behind every build', 'Peer-reviewed research', 'Where the foundation began', 'Send the signal'];
 
   /* ---------- render + choreography ---------- */
   function renderStage(i) {

@@ -1503,7 +1503,7 @@ html.dlg-open .waypoint .wp > *{ pointer-events:none; }
 .pv__frame i:nth-of-type(4){ right:10px; bottom:10px; border-left:0; border-top:0; }
 .pv__count{ position:absolute; left:14px; bottom:14px; font-family:var(--pix); font-size:.5rem; letter-spacing:1px; color:#fff; padding:.4rem .6rem; border-radius:8px;
   background:rgba(8,4,22,.8); border:1px solid color-mix(in srgb,var(--acc) 60%,transparent); }
-.pv__tabs{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:.5rem; margin:.9rem 0 1rem; }
+.pv__tabs{ position:relative; display:grid; grid-template-columns:repeat(6,1fr); gap:.5rem; margin:.9rem 0 1rem; }
 .pv__tab{ position:relative; z-index:1; aspect-ratio:16/10; border-radius:10px; overflow:hidden; cursor:pointer; padding:0; background:#0b0818;
   border:1px solid rgba(255,255,255,.16); opacity:.6; transition:opacity .25s var(--e-out), transform .25s var(--e-out), border-color .25s; }
 .pv__tab img{ width:100%; height:100%; object-fit:cover; display:block; }
@@ -1613,3 +1613,22 @@ html.dlg-open .gfx,html.dlg-open .maphint{ opacity:0 !important; pointer-events:
 
 /* keep the stage mini-map from touching right-aligned content on mid-size screens */
 @media (min-width:861px) and (max-width:1400px){ .section > .wrap, .contact > .wrap{ padding-right:2.4rem; } }
+
+/* project briefing: screenshot strip (login/dashboard first, then menus) */
+.pv__shots{ display:flex; gap:.45rem; margin:.7rem 0 0; flex-wrap:wrap; }
+.pv__shots[hidden]{ display:none; }
+.pv__shot{ width:64px; aspect-ratio:16/10; padding:0; border-radius:8px; overflow:hidden; cursor:pointer; background:#0b0818; border:2px solid transparent; opacity:.6; transition:opacity .25s, border-color .25s; }
+.pv__shot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.pv__shot:hover,.pv__shot[aria-pressed="true"]{ opacity:1; }
+.pv__shot[aria-pressed="true"]{ border-color:var(--acc); }
+.pv__shot:focus-visible{ outline:2px solid var(--acc); outline-offset:2px; }
+
+/* skills: grouped by area; mono logos are inverted for the dark theme */
+.skills--groups{ display:flex; flex-direction:column; gap:clamp(1.6rem,3vw,2.4rem); }
+.skills--groups .tools-grid{ grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); }
+.skills--groups .sub{ margin-bottom:.9rem; }
+.tool img.mono{ filter:invert(1); }
+.tool--text{ padding-left:1.1rem; position:relative; }
+.tool--text::after{ content:''; position:absolute; left:.5rem; top:50%; width:5px; height:5px; margin-top:-2.5px; border-radius:2px; background:var(--accent,#B98CFF); box-shadow:0 0 8px rgba(185,140,255,.7); }
+@media (max-width:700px){ .skills--groups .tools-grid{ grid-template-columns:repeat(2,1fr); } }
+.dl-tool img.mono{ filter:invert(1); }
