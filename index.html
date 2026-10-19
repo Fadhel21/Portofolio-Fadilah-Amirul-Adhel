@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<title>Fadilah Amirul Adhel — Data Analyst &amp; BI</title>
+<meta name="theme-color" content="#0B0716"/>
+<script>
+/* Served over http(s): use the bundled copies in js/vendor. Opened from disk (file://): ES modules can't load local files, so use the CDN. */
+(function () {
+  var f = location.protocol === 'file:', T = f ? 'https://cdn.jsdelivr.net/npm/three@0.160.0/' : './js/vendor/three/';
+  document.write('<script type="importmap">' + JSON.stringify({ imports: { 'three': T + (f ? 'build/three.module.js' : 'three.module.js'), 'three/addons/': f ? T + 'examples/jsm/' : T + 'addons/' } }) + '<\/script>');
+  document.write('<script defer src="' + (f ? 'https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.min.js' : './js/vendor/motion.js') + '"><\/script>');
+})();
+</script>
+<meta name="description" content="Portfolio of Fadilah Amirul Adhel — Data Analyst and Business Intelligence professional. Dashboards, analytics, and data products built with Power BI, Tableau, Excel, Python, and SQL."/>
+<meta name="author" content="Fadilah Amirul Adhel"/>
+<meta name="robots" content="index,follow"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237C4DFF'/%3E%3Cstop offset='1' stop-color='%23FF5FD2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-size='38' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3E%CE%A3%3C/text%3E%3C/svg%3E"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Fadilah Amirul Adhel — Data Analyst &amp; BI"/>
+<meta property="og:description" content="Portfolio of Fadilah Amirul Adhel — Data Analyst and Business Intelligence professional. Dashboards, analytics, and data products built with Power BI, Tableau, Excel, Python, and SQL."/>
+<meta property="og:image" content="assets/og.jpg"/>
+<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Purple retro computer showing the word Portfolio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Fadilah Amirul Adhel — Data Analyst &amp; BI"/>
+<meta name="twitter:description" content="Portfolio of Fadilah Amirul Adhel — Data Analyst and Business Intelligence professional. Dashboards, analytics, and data products built with Power BI, Tableau, Excel, Python, and SQL."/>
+<meta name="twitter:image" content="assets/og.jpg"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fadilah Amirul Adhel","jobTitle":"Data Analyst & Business Intelligence","email":"mailto:fadhelmegasus@gmail.com",
+"address":{"@type":"PostalAddress","addressLocality":"Bantaeng","addressRegion":"South Sulawesi","addressCountry":"ID"},
+"alumniOf":{"@type":"CollegeOrUniversity","name":"Hasanuddin University"},
+"knowsAbout":["Data Analysis","Business Intelligence","Power BI","Tableau","SQL","Python","Machine Learning","NLP"],
+"sameAs":["https://github.com/Fadhel21","https://linkedin.com/in/fadilah-amirul-adhel"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Press+Start+2P&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="mapCanvas" aria-hidden="true"></canvas>
+<nav class="route" id="route" aria-label="Map stages"><button type="button" style="--acc:#A65CFF" aria-label="Go to stage 1: Projects"><span>01 PROJECTS</span><i></i></button><button type="button" style="--acc:#FFD34F" aria-label="Go to stage 2: Certs"><span>02 CERTS</span><i></i></button><button type="button" style="--acc:#FF4FD8" aria-label="Go to stage 3: Skills"><span>03 SKILLS</span><i></i></button><button type="button" style="--acc:#3FE0FF" aria-label="Go to stage 4: Papers"><span>04 PAPERS</span><i></i></button><button type="button" style="--acc:#7C9BFF" aria-label="Go to stage 5: Academy"><span>05 ACADEMY</span><i></i></button><button type="button" style="--acc:#5DFFB0" aria-label="Go to stage 6: Contact"><span>06 CONTACT</span><i></i></button></nav>
+<div class="xp" id="xp" aria-hidden="true"><span class="xp__lvl" id="xpLvl">LVL 01</span><span class="xp__bar"><i id="xpFill"></i></span><span class="xp__pct" id="xpPct">0%</span></div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__pill">
+    <span class="loader__label">Loading level 01</span>
+    <span class="loader__bar"><span class="loader__fill" id="loaderFill"></span></span>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+
+<a class="skip" href="#main">Skip to content</a>
+<svg id="icons" aria-hidden="true" focusable="false"><defs>
+<g id="i-mail"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m22 7-10 6L2 7"/></g>
+<g id="i-phone"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></g>
+<g id="i-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></g>
+<g id="i-arrow-ur"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></g>
+<g id="i-arrow-up"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></g>
+<g id="i-chev-down"><path d="m6 9 6 6 6-6"/></g>
+<g id="i-ext"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></g>
+<g id="i-github"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></g>
+</defs></svg>
+
+
+<!-- NAV -->
+<header class="topnav" id="topnav">
+  <a class="brand" href="#about" aria-label="Fadilah Amirul Adhel — home">
+    <span class="mark">&Sigma;</span>
+    <span><span class="bt">Fadilah <span style="font-weight:300">Amirul Adhel</span></span><br><span class="bs">Data analyst | Business Intelligence</span></span>
+  </a>
+  <div class="nav-right">
+    <nav><ul class="nav-links" id="navLinks">
+      <li><a href="#about">about</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#certifications">certifications</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#publications">publications</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul></nav>
+    <a class="btn btn-primary nav-cta" href="mailto:fadhelmegasus@gmail.com"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> Get in touch</a>
+    <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="crt" aria-hidden="true"></div>
+  <div class="hud" aria-hidden="true">
+    <div class="chip c1"><span><svg viewBox="0 0 24 24" fill="none" stroke="#B98CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h4M8 9v4"/><circle cx="15.5" cy="10.5" r=".6" fill="#FFD34F"/><circle cx="17.5" cy="12.5" r=".6" fill="#FF4FD8"/><path d="M5.5 6h13a3.5 3.5 0 0 1 3.4 4.3l-1.2 5.6a2.4 2.4 0 0 1-4 1.2L14.5 15h-5l-2.2 2.1a2.4 2.4 0 0 1-4-1.2l-1.2-5.6A3.5 3.5 0 0 1 5.5 6z"/></svg>PLAYER <b>ONE</b></span></div>
+    <div class="chip c2"><span><i>&lt;</i><b>App</b><i>/&gt;</i> <span style="opacity:.6">ship it</span></span></div>
+    <div class="chip c3 chip--px"><span><span class="gold">+250 XP</span></span></div>
+    <div class="chip c4"><span><span class="k">$</span> npm run <b>dev</b><span class="caret"></span></span></div>
+    <div class="chip c5 chip--px"><span>LVL 07 <span class="gold">&#9733;&#9733;&#9733;</span></span></div>
+    <div class="chip c6"><span><i>git</i> push origin <b>main</b></span></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="idchip"><span class="stat-dot" aria-hidden="true"></span><b>Available for projects, 2026</b></div>
+      <div class="namebar">
+        <div class="hero-photo"><img data-fade src="assets/img/profile.jpg" alt="Fadilah Amirul Adhel"></div>
+        <h1>Fadilah<br>Amirul<br><span class="g">Adhel</span></h1>
+      </div>
+      <p class="tagline e-tag">Turning complex data into <span class="g">decisions</span>.</p>
+      <div class="hero-role e-role"><span id="role" class="car">Data Analyst</span></div>
+      <p class="lead">Fadilah Amirul Adhel — Data Analyst &amp; Business Intelligence professional. B.Sc. in Statistics (GPA 3.59) from Universitas Hasanuddin, turning raw data into clear, actionable insight with Power BI, Tableau, Excel, Python, and SQL.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View projects <svg class="i i-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <a class="btn" href="https://github.com/Fadhel21" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg> GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/fadilah-amirul-adhel" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn</a>
+              <a class="btn cv-btn" href="assets/CV-Fadilah-Amirul-Adhel.pdf" download hidden><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg> Download CV</a>
+      </div>
+      
+      
+      <div class="hero-contacts">
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg> Bantaeng, South Sulawesi</span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:+6289529526048">+62 895-295-260-48</a></span>
+        <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mail"/></svg> <a href="mailto:fadhelmegasus@gmail.com">fadhelmegasus@gmail.com</a></span>
+      </div>
+    
+    </div>
+
+    
+    <div class="console" aria-label="Key figures">
+      <div class="kpis">
+        <div class="kpi"><div class="num" data-count="3.59" data-dec="2">0</div><div class="lbl">GPA / 4.0</div></div>
+        <div class="kpi"><div class="num" data-count="5" data-suffix="+">0</div><div class="lbl">Featured Projects</div></div>
+        <div class="kpi"><div class="num" data-count="15" data-suffix="+">0</div><div class="lbl">Tools &amp; Tech</div></div>
+        <div class="kpi"><div class="num" data-count="4">0</div><div class="lbl">Years of Study</div></div>
+        <div class="kpi kpi--time"><div class="lbl">Based in</div><div class="num num--sm">Bantaeng, ID</div><div class="clock" id="clock">--:--&nbsp;WITA</div></div>
+      </div>
+    </div>
+  </div>
+  <a class="mouse" href="#projects" aria-label="Scroll to projects"><span class="mouse__dot"></span></a>
+</section>
+
+<main id="main">
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__row"><div class="marquee__track">
+    <div class="marquee__group"><span>Data Analysis</span><span class="sep">&#10022;</span><span class="outline">Business Intelligence</span><span class="sep">&#10022;</span><span>Dashboards</span><span class="sep">&#10022;</span><span class="outline">Machine Learning</span><span class="sep">&#10022;</span></div>
+  </div></div>
+  <div class="marquee__row marquee--rev"><div class="marquee__track">
+    <div class="marquee__group"><span>Power BI</span><span class="sep">&#10022;</span><span class="outline">Tableau</span><span class="sep">&#10022;</span><span>SQL</span><span class="sep">&#10022;</span><span class="outline">Python</span><span class="sep">&#10022;</span><span>Looker Studio</span><span class="sep">&#10022;</span></div>
+  </div></div>
+</div>
+
+<div class="waypoint" style="--acc:#A65CFF"><div class="wp"><div class="wp__stage m-hide">STAGE 01 / 06</div><h2 class="wp__title m-hide">Project<br><span>Lab</span></h2><p class="wp__sub m-hide">5 builds across Tableau, Excel and Power BI, plus a live EdTech product.</p><button class="wp__open m-hide" type="button" data-open="0">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<!-- PROJECTS -->
+<section class="section tint work" id="projects">
+  <div class="wrap">
+    <div class="sec-head m-hide">
+      <div class="sec-eyebrow">(01) Selected Work</div>
+      <h2 class="sec-title">Projects</h2>
+      <p class="sec-sub">Dashboards and data products that turn business questions into clear, decision-ready visuals.</p>
+    </div>
+    <div class="work__meta"><span class="work__counter"><b id="workCur">01</b> / 05</span>
+      <span class="work__bar"><i id="workBar"></i></span></div>
+    <div class="work__view"><div class="proj-grid stagger" id="workTrack">
+        <article class="proj-card m-hide" data-problem="Track growth and sales-team effectiveness from a year of sales data." data-approach="Interactive Tableau dashboard: KPI tiles, distribution by state, monthly trends by segment, and contribution by region and manager." style="--accent:var(--c-cyan)">
+          <span class="spot" aria-hidden="true"></span><div class="proj-thumb"><img data-fade src="assets/img/project-1.jpg" alt="Sales Performance Dashboard in Tableau" loading="lazy"></div>
+          <div class="proj-body">
+            <p class="proj-tool">Tableau // Sales Analytics</p>
+            <h3>Sales Performance Dashboard</h3>
+            <p class="proj-desc">An interactive dashboard summarising annual sales performance — total sales, profit, and quantity. It maps distribution by state, monthly trends by segment, and contribution by region and manager to track growth and sales-team effectiveness.</p>
+            <div class="tags">
+              <span class="tag">Tableau</span>
+              <span class="tag">Sales Analytics</span>
+              <span class="tag">Dashboard</span>
+              <span class="tag">KPI</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Fadhel21/Dashboard-Sales-Tableau" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg><span>View on GitHub</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+          </div>
+        </article>
+        <article class="proj-card m-hide" data-problem="See Swiggy’s sales, ratings and order value in one view." data-approach="Excel dashboard with monthly, daily and weekly trends, a Veg vs Non-Veg comparison, a state-by-state map and the Top 5 cities by sales." data-result="$53.01M total sales · 4.34 avg rating · 197.43K orders" style="--accent:var(--c-amber)">
+          <span class="spot" aria-hidden="true"></span><div class="proj-thumb"><img data-fade src="assets/img/project-2.jpg" alt="Swiggy Sales Performance dashboard in Excel" loading="lazy"></div>
+          <div class="proj-body">
+            <p class="proj-tool">Excel // Food Delivery</p>
+            <h3>Swiggy Sales Performance Dashboard</h3>
+            <p class="proj-desc">An interactive dashboard displaying Swiggy’s sales performance — $53.01M total sales, 4.34 avg rating, $268.51 avg order value, 5.59M rating count, and 197.43K total orders. Features monthly, daily, and weekly trends, Veg vs Non-Veg comparison, a state-by-state map, and the Top 5 cities by sales.</p>
+            <div class="tags">
+              <span class="tag">Excel</span>
+              <span class="tag">Sales Analytics</span>
+              <span class="tag">Dashboard</span>
+              <span class="tag">KPI</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Fadhel21/Swiggy-Sales-Performance-Dashboard-Excel" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg><span>View on GitHub</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+          </div>
+        </article>
+        <article class="proj-card m-hide" data-problem="Understand Shopify sales and customer behaviour, including repeat purchases and lifetime value." data-approach="Power BI report covering net sales, order quantity, average order value, customer lifetime value and repeat customer rate, with regional mapping, weekly trends and payment-method analysis." style="--accent:var(--c-violet)">
+          <span class="spot" aria-hidden="true"></span><div class="proj-thumb"><img data-fade src="assets/img/project-3.jpg" alt="Shopify Sales & Customer Funnel report in Power BI" loading="lazy"></div>
+          <div class="proj-body">
+            <p class="proj-tool">Power BI // E-commerce</p>
+            <h3>Shopify Sales &amp; Customer Funnel Report</h3>
+            <p class="proj-desc">An interactive Power BI dashboard for Shopify sales and customer analytics — net sales, order quantity, average order value, customer lifetime value, and repeat customer rate, with regional mapping, weekly trends, and payment-method analysis.</p>
+            <div class="tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Customer Funnel</span>
+              <span class="tag">Sales Analytics</span>
+              <span class="tag">KPI</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Fadhel21/Shopify-Sales-Customer-Funnel-Report-Power-BI" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg><span>View on GitHub</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+          </div>
+        </article>
+        <article class="proj-card m-hide" data-problem="Connect sales, customer satisfaction and inventory for a quick-commerce retailer." data-approach="Power BI dashboard with dynamic KPIs sliced by fat content, item category, outlet establishment year, size, location and type." style="--accent:var(--c-coral)">
+          <span class="spot" aria-hidden="true"></span><div class="proj-thumb"><img data-fade src="assets/img/project-4.jpg" alt="Blinkit Sales Performance dashboard in Power BI" loading="lazy"></div>
+          <div class="proj-body">
+            <p class="proj-tool">Power BI // Quick Commerce</p>
+            <h3>Blinkit Sales Performance Dashboard</h3>
+            <p class="proj-desc">An interactive Power BI dashboard for Blinkit covering sales, customer satisfaction, and inventory — with insights by fat content, item category, outlet establishment year, size, location, and type through dynamic KPIs.</p>
+            <div class="tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">Sales Analytics</span>
+              <span class="tag">Inventory</span>
+              <span class="tag">KPI</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Fadhel21/Sales-Performance-Dashboard-Power-BI---Blinkit-India-s-Last-Minute-App-" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg><span>View on GitHub</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+          </div>
+        </article>
+        <article class="proj-card m-hide" data-problem="Give junior-high, senior-high and university-prep students a technology-based way to learn." data-approach="Live Zoom classes integrated with automated assessment, ability-mapping analysis and monthly progress reports delivered to parents." style="--accent:var(--c-blue)">
+          <span class="spot" aria-hidden="true"></span><div class="proj-thumb"><img data-fade src="assets/img/project-5.jpg" alt="Logarial online learning platform landing page" loading="lazy"></div>
+          <div class="proj-body">
+            <p class="proj-tool">Product // EdTech Platform</p>
+            <h3>Logarial — Online Learning Platform</h3>
+            <p class="proj-desc">A technology-based learning platform for junior-high, senior-high, and university-prep students. Live Zoom classes are integrated with automated assessment, ability-mapping analysis, and monthly progress reports delivered straight to parents.</p>
+            <div class="tags">
+              <span class="tag">EdTech</span>
+              <span class="tag">Web Platform</span>
+              <span class="tag">Live Class</span>
+              <span class="tag">Product</span>
+            </div>
+            <a class="proj-link" href="https://logarial.com/" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>Visit Website</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+          </div>
+        </article>
+    </div></div>
+  </div>
+</section>
+
+<div class="waypoint" style="--acc:#FFD34F"><div class="wp"><div class="wp__stage m-hide">STAGE 02 / 06</div><h2 class="wp__title m-hide">Trophy<br><span>Room</span></h2><p class="wp__sub m-hide">Bisa AI Academy, MSIB Batch 3: the AI Hacker track.</p><button class="wp__open m-hide" type="button" data-open="1">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+  <div class="wrap">
+    <div class="sec-head m-hide">
+      <div class="sec-eyebrow">(02) Credentials</div>
+      <h2 class="sec-title">Certifications</h2>
+      <p class="sec-sub">Hands-on, program-based learning at the intersection of AI and product.</p>
+    </div>
+    <div class="cert m-hide">
+      <figure class="cert-fig" id="certFig" tabindex="0" role="button" aria-label="View full certificate">
+        <img src="assets/img/certificate.jpg" alt="MSIB certificate awarded to Fadilah Amirul Adhel by Bisa AI Academy">
+        <figcaption class="hint">Click to view full certificate</figcaption>
+      </figure>
+      <div class="cert-info">
+        <span class="pill">Bisa AI Academy &middot; MSIB Batch 3</span>
+        <h3>Certified Independent Study Program (MSIB) &ndash; Bisa AI Academy</h3>
+        <p>Participated in the Certified Independent Study Program (MSIB) at PT Bisa Artifisial Indonesia (Bisa AI Academy), focusing on the development of AI-based digital startups. The program was conducted as part of the AI Hacker activity, providing hands-on experience in artificial intelligence, innovation, business development, and technology-driven startup creation.</p>
+        <div class="cert-meta">
+          <span>Batch 3 Participant</span><span>Aug &ndash; Dec 2022</span><span>AI Hacker Track</span>
+        </div>
+        <button class="btn btn-primary" id="certBtn" type="button"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> View certificate</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="waypoint" style="--acc:#FF4FD8"><div class="wp"><div class="wp__stage m-hide">STAGE 03 / 06</div><h2 class="wp__title m-hide">The<br><span>Workshop</span></h2><p class="wp__sub m-hide">Python, SQL, BI tools and ML: the gear behind every dashboard.</p><button class="wp__open m-hide" type="button" data-open="2">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<!-- SKILLS -->
+<section class="section tint" id="skills">
+  <div class="wrap">
+    <div class="sec-head m-hide">
+      <div class="sec-eyebrow">(03) Capabilities</div>
+      <h2 class="sec-title">Skills</h2>
+      <p class="sec-sub">The analytics stack and methods I use to move from raw data to reliable insight.</p>
+    </div>
+    <div class="skills">
+      <div>
+        <div class="sub m-hide"><span class="ct">01 /</span> Tools &amp; Technologies</div>
+        <div class="tools-grid stagger">
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"><span>Python</span></div>
+          <div class="tool m-hide"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" loading="lazy"><span>Power BI</span></div>
+          <div class="tool m-hide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau" loading="lazy"><span>Tableau</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy"><span>MySQL</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+          <div class="tool m-hide"><img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="SQL Server" loading="lazy"><span>SQL Server</span></div>
+          <div class="tool m-hide"><img src="assets/img/tool-microsoft-excel.png" alt="Microsoft Excel" loading="lazy"><span>Microsoft Excel</span></div>
+          <div class="tool m-hide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Google_Sheets_2020_Logo.svg" alt="Google Sheets" loading="lazy"><span>Google Sheets</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" loading="lazy"><span>R</span></div>
+          <div class="tool m-hide"><img src="assets/img/tool-spss.png" alt="SPSS" loading="lazy"><span>SPSS</span></div>
+          <div class="tool m-hide"><img src="assets/img/tool-pentaho.png" alt="Pentaho" loading="lazy"><span>Pentaho</span></div>
+          <div class="tool m-hide"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP" loading="lazy"><span>SAP</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" loading="lazy"><span>TensorFlow</span></div>
+          <div class="tool m-hide"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn" loading="lazy"><span>Scikit-learn</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"><span>Pandas</span></div>
+          <div class="tool m-hide"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" loading="lazy"><span>Laravel</span></div>
+          <div class="tool m-hide"><img src="https://www.vectorlogo.zone/logos/metabase/metabase-icon.svg" alt="Metabase" loading="lazy"><span>Metabase</span></div>
+          <div class="tool m-hide"><img src="assets/img/tool-looker-studio.svg" alt="Looker Studio" loading="lazy"><span>Looker Studio</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="sub m-hide"><span class="ct">02 /</span> Workflow</div>
+        <ul class="flow stagger">
+          <li class="m-hide">Data Analysis &amp; Cleaning</li>
+          <li class="m-hide">Data Science &amp; Machine Learning</li>
+          <li class="m-hide">Business Intelligence &amp; Reporting</li>
+          <li class="m-hide">Data Visualization &amp; Dashboards</li>
+          <li class="m-hide">Statistical Modeling</li>
+          <li class="m-hide">Natural Language Processing (NLP)</li>
+          <li class="m-hide">Database Management</li>
+          <li class="m-hide">ETL &amp; Data Pipelines</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="waypoint" style="--acc:#3FE0FF"><div class="wp"><div class="wp__stage m-hide">STAGE 04 / 06</div><h2 class="wp__title m-hide">Research<br><span>Library</span></h2><p class="wp__sub m-hide">Two published papers on sentiment analysis with NLP and SVM.</p><button class="wp__open m-hide" type="button" data-open="3">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<!-- PUBLICATIONS -->
+<section class="section words" id="publications">
+    <span class="blob blob--pink" aria-hidden="true"></span><span class="blob blob--blue" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head m-hide">
+      <div class="sec-eyebrow">(04) Research</div>
+      <h2 class="sec-title">Publications</h2>
+      <p class="sec-sub">Peer-reviewed research in machine learning and natural language processing for sentiment analysis.</p>
+    </div>
+    <div class="pub-grid stagger">
+      <article class="pub-card m-hide" style="--accent:var(--c-cyan)">
+        <span class="spot" aria-hidden="true"></span>
+        <div class="pub-top">
+          <span class="pub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></span>
+          <span class="pub-kicker">Naive Bayes &middot; Lexicon-Based</span>
+        </div>
+        <h3>Sentiment Analysis Using Naive Bayes with Lexicon-Based Feature on TikTok Application</h3>
+        <p class="pub-desc">Published research focusing on sentiment analysis of TikTok application reviews using the Naive Bayes algorithm combined with Lexicon-Based Features.</p>
+        <div class="pub-meta">
+          <span>Jurnal Varian</span><span>Universitas Bumigora</span><span>NLP</span>
+        </div>
+        <a class="pub-link" href="https://journal.universitasbumigora.ac.id/index.php/Varian/article/view/2205/1146" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>Read paper</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+      </article>
+      <article class="pub-card m-hide" style="--accent:var(--c-violet)">
+        <span class="spot" aria-hidden="true"></span>
+        <div class="pub-top">
+          <span class="pub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg></span>
+          <span class="pub-kicker">SVM &middot; FastText &middot; Firefly</span>
+        </div>
+        <h3>Comparison of Support Vector Machine Based on FastText Without and With Firefly Optimization Parameters for Disaster Sentiment Analysis in Indonesia</h3>
+        <p class="pub-desc">Research comparing Support Vector Machine models based on FastText with and without Firefly Optimization for disaster sentiment analysis in Indonesia.</p>
+        <div class="pub-meta">
+          <span>SVM</span><span>FastText</span><span>Firefly Optimization</span>
+        </div>
+        <a class="pub-link" href="https://www.researchgate.net/publication/382831458_COMPARISON_OF_SUPPORT_VECTOR_MACHINE_BASED_ON_FASTTEXT_WITHOUT_AND_WITH_FIREFLY_OPTIMIZATION_PARAMETERS_FOR_DISASTER_SENTIMENT_ANALYSIS_IN_INDONESIA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg><span>Read on ResearchGate</span><span class="arr" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><use href="#i-arrow-ur"/></svg></span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="waypoint" style="--acc:#7C9BFF"><div class="wp"><div class="wp__stage m-hide">STAGE 05 / 06</div><h2 class="wp__title m-hide">The<br><span>Academy</span></h2><p class="wp__sub m-hide">B.Sc. in Statistics, Hasanuddin University, GPA 3.59.</p><button class="wp__open m-hide" type="button" data-open="4">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<!-- EDUCATION -->
+<section class="section tint" id="education">
+  <div class="wrap">
+    <div class="sec-head m-hide">
+      <div class="sec-eyebrow">(05) Background</div>
+      <h2 class="sec-title">Education</h2>
+      <p class="sec-sub">Formal training in statistics &mdash; the foundation behind every analysis and model.</p>
+    </div>
+    <div class="edu-card m-hide">
+      <div class="edu-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <div class="edu-body">
+        <span class="edu-period">August 2019 &ndash; August 2023</span>
+        <h3>Hasanuddin University, Makassar</h3>
+        <p class="edu-degree">Bachelor&rsquo;s Degree in Statistics</p>
+        <div class="edu-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Makassar, Indonesia</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-5"/></svg>GPA 3.59 / 4.0</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>4 Years</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="waypoint" style="--acc:#5DFFB0"><div class="wp"><div class="wp__stage m-hide">STAGE 06 / 06</div><h2 class="wp__title m-hide">Signal<br><span>Tower</span></h2><p class="wp__sub m-hide">Got a data problem or a build in mind? Send the signal.</p><button class="wp__open m-hide" type="button" data-open="5">OPEN BRIEFING <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <div class="wp__go m-hide"><i></i>KEEP SCROLLING</div></div></div>
+
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="sec-eyebrow m-hide">(06) Contact</div>
+    <div class="contact__split">
+      <div class="contact__lead">
+        <h2 class="contact__title m-hide">Let&rsquo;s make<br>something <span class="outline">great</span></h2>
+        <a class="btn btn-primary btn-xl m-hide" href="mailto:fadhelmegasus@gmail.com">
+          fadhelmegasus@gmail.com <svg class="i i-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+        <div class="contact__tools m-hide">
+          <button class="btn" type="button" id="copyMail"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg> <span>Copy email</span></button>
+          <a class="btn cv-btn" href="assets/CV-Fadilah-Amirul-Adhel.pdf" download hidden><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg> Download CV</a>
+        </div>
+        <p class="contact__note m-hide">Prefer a quick note? Use the form &mdash; or copy my email if your mail app doesn&rsquo;t open.</p>
+      </div>
+      <form class="cform m-hide" id="cform" data-endpoint="" novalidate>
+        <h3 class="cform__t">Send a message</h3>
+        <div class="cform__row">
+          <label class="cf"><span>Name</span><input name="name" type="text" autocomplete="name" required></label>
+          <label class="cf"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label class="cf"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+        <input class="cf__hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cform__foot"><button class="btn btn-primary" type="submit">Send message <svg class="i i-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-ur"/></svg></button><p class="cform__s" id="cformS" role="status" aria-live="polite"></p></div>
+      </form>
+    </div>
+    <div class="contact__grid m-hide">
+      <div><h3>Studio</h3><p>Bantaeng, South Sulawesi<br>Open to remote &amp; onsite</p></div>
+      <div><h3>Social</h3><ul><li><a href="https://github.com/Fadhel21" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://linkedin.com/in/fadilah-amirul-adhel" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+      <div><h3>Menu</h3><ul><li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#publications">Publications</a></li></ul></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="foot-brand"><span class="mark">&Sigma;</span> Fadilah Amirul Adhel</div>
+    <div class="foot-social">
+      <a href="https://github.com/Fadhel21" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.5-2.69-.95-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.13 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.93.08 2.13.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg></a>
+      <a href="https://linkedin.com/in/fadilah-amirul-adhel" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a href="mailto:fadhelmegasus@gmail.com" aria-label="Email"><svg class="ic" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+    </div>
+  </div>
+  <div class="foot-copy">&copy; 2026 Fadilah Amirul Adhel &middot; Data Analyst &amp; Business Intelligence Professional &middot; built with care</div>
+  <div class="footer__wordmark" aria-hidden="true">FADILAH ADHEL</div>
+</footer>
+
+<div id="mapTip" aria-hidden="true"></div>
+<div class="maphint" id="mapHint" role="status"><span>&#9656;</span> Click a station to open its briefing</div>
+<button class="gfx" id="gfx" type="button" aria-pressed="false" title="Switch graphics quality">GFX: HIGH</button>
+<div class="dlg" id="dlg" hidden aria-hidden="true">
+  <div class="dlg__scrim" id="dlgScrim"></div>
+  <p class="dlg__hint" id="dlgHint" aria-hidden="true"><kbd>ESC</kbd> or click outside to close</p>
+  <div class="dlg__toast" id="dlgToast" role="status"></div>
+  <section class="dlg__panel" id="dlgPanel" role="dialog" aria-modal="true" aria-labelledby="dlgTitle" tabindex="-1">
+    <header class="dlg__head">
+      <span class="dlg__stage" id="dlgStage">STAGE 01 / 06</span>
+      <button class="dlg__x" id="dlgClose" type="button" aria-label="Close briefing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </header>
+    <h2 class="dlg__title" id="dlgTitle">Project Lab</h2>
+    <div class="dlg__scroll" id="dlgScroll"><div id="dlgBody"></div></div>
+    <footer class="dlg__foot" id="dlgFoot"></footer>
+  </section>
+</div>
+<button id="toTop" type="button" aria-label="Back to top"><svg class="i i-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up"/></svg></button>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="x" type="button" aria-label="Close">&times;</button>
+  <img src="assets/img/certificate.jpg" alt="Full MSIB certificate">
+</div>
+
+<script src="js/core.js" defer></script>
+<script src="js/motion-layer.js" defer></script>
+
+
+<script src="js/hero-parallax.js" defer></script>
+<script src="js/work-rail.js" defer></script>
+
+<script src="js/marquee.js" defer></script>
+<script src="js/hero-scrub.js" defer></script>
+<script src="js/game-motion.js" defer></script>
+<script src="js/briefing.js" defer></script>
+<script src="js/contact.js" defer></script>
+<script src="js/map.js" defer></script>
+</body>
+</html>
