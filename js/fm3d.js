@@ -3,7 +3,7 @@
    1. sections tilt into view with scroll-linked 3D rotation
    2. spinning glass cubes floating next to every section title
    3. deep 3D hover tilt (with layered depth) on tiles & cards
-   4. click burst: spinning 3D shards + a tilted shockwave ring
+   4. object trail in the hero + click burst: 3D polaroids, stickers, tags and notes
    ============================================================ */
 (function () {
   var M = window.Motion;
@@ -74,39 +74,75 @@
     });
   }
 
-  /* ---------- 4. 3D click burst ---------- */
-  function burst3d(x, y, n) {
-    var ring = document.createElement('i'); ring.className = 'fx fx-ring';
-    ring.style.left = x - 40 + 'px'; ring.style.top = y - 40 + 'px'; document.body.appendChild(ring);
-    animate(ring, { transform: ['rotateX(68deg) scale(.15)', 'rotateX(68deg) scale(2.6)'], opacity: [.95, 0] }, { duration: .7, easing: [.2, .7, .3, 1] })
-      .finished.then(function () { ring.remove(); });
-    for (var i = 0; i < n; i++) {
-      var p = document.createElement('i'); p.className = 'fx fx-shard';
-      var col = COLORS[i % COLORS.length], s = 9 + Math.random() * 9;
-      p.style.width = p.style.height = s + 'px'; p.style.left = x - s / 2 + 'px'; p.style.top = y - s / 2 + 'px';
-      p.style.background = 'linear-gradient(135deg,#fff8,' + col + ' 45%,' + col + 'aa)'; p.style.boxShadow = '0 0 14px ' + col;
-      p.style.borderRadius = Math.random() > .5 ? '3px' : '50%';
-      document.body.appendChild(p);
-      var a = (Math.PI * 2 * i) / n + Math.random() * .6, d = 50 + Math.random() * 90;
-      var dx = Math.cos(a) * d, dy = Math.sin(a) * d - 26;
-      var spin = (Math.random() > .5 ? 1 : -1) * (540 + Math.random() * 540);
-      animate(p, {
-        transform: [
-          'translate(0px,0px) perspective(300px) rotateX(0deg) rotateY(0deg) scale(1)',
-          'translate(' + dx + 'px,' + dy + 'px) perspective(300px) rotateX(' + spin + 'deg) rotateY(' + spin * .7 + 'deg) scale(1)',
-          'translate(' + dx + 'px,' + (dy + 50) + 'px) perspective(300px) rotateX(' + spin * 1.5 + 'deg) rotateY(' + spin + 'deg) scale(.2)'
-        ],
-        opacity: [1, 1, 0]
-      }, { duration: .8 + Math.random() * .35, easing: [.2, .7, .3, 1], offset: [0, .55, 1] })
-        .finished.then((function (el) { return function () { el.remove(); }; })(p));
+  /* ---------- 4. 3D object trail + click burst (polaroids, stickers, tags, notes) ---------- */
+  var L = 'https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/';
+  var PHOTOS = ['assets/img/profile.jpg', 'assets/img/projects/hris-2.jpg', 'assets/img/projects/crm-2.png', 'assets/img/projects/erp-2.jpg', 'assets/img/projects/pos-3.png', 'assets/img/projects/xl-1.png', 'assets/img/projects/pbi-1.png', 'assets/img/projects/fnb-1.png'];
+  var LOGOS = ['claude-color', 'openai', 'gemini-color', 'n8n-color', 'huggingface-color', 'langchain-color', 'meta-color', 'deepseek-color', 'claudecode-color', 'ollama', 'cursor'];
+  var TAGS = ['AI Developer', 'AI Automation', 'AI Engineer', 'Data Engineer', 'AI Data Analyst', 'Business Intelligence'];
+  var NOTES = ['2026', 'n8n', 'RAG', 'LLM', 'MCP', 'AI'];
+  var BADGE_BG = ['#8E8CF0', '#FF7AD9', '#52D6F4', '#FFD34F', '#A98BFF'];
+  var STAR = (function () {
+    var pts = [];
+    for (var i = 0; i < 24; i++) { var r = i % 2 ? 41 : 50, a = i / 24 * Math.PI * 2; pts.push((50 + Math.cos(a) * r).toFixed(1) + '% ' + (50 + Math.sin(a) * r).toFixed(1) + '%'); }
+    return 'polygon(' + pts.join(',') + ')';
+  })();
+  var CODE_SVG = '<svg viewBox="0 0 100 100"><path d="M36 32 18 50l18 18M64 32l18 18-18 18M55 26 45 74" fill="none" stroke="#25235f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var live = [];
+  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+  function box(cls, html) { var e = document.createElement('div'); e.className = cls; if (html) e.innerHTML = html; return e; }
+  function img(src) { var i = document.createElement('img'); i.src = src; i.alt = ''; i.draggable = false; return i; }
+
+  function makeObject() {
+    var t = Math.random(), o;
+    if (t < .30) { o = box('fxo fxo-polaroid'); o.appendChild(img(pick(PHOTOS))); }
+    else if (t < .52) { o = box('fxo fxo-sticker'); o.appendChild(img(L + pick(LOGOS) + '.svg')); }
+    else if (t < .72) {
+      o = box('fxo fxo-badge'); o.style.clipPath = STAR; o.style.setProperty('--bg', pick(BADGE_BG));
+      var k = Math.floor(Math.random() * 3);
+      o.innerHTML = k === 0 ? CODE_SVG : '<span>' + (k === 1 ? 'AI' : '{ }') + '</span>';
     }
+    else if (t < .88) { o = box('fxo fxo-tag'); o.textContent = pick(TAGS); }
+    else { o = box('fxo fxo-note', '<i></i><span>' + pick(NOTES) + '</span>'); }
+    return o;
+  }
+  function drop(o) { var i = live.indexOf(o); if (i > -1) live.splice(i, 1); if (o.parentNode) o.remove(); }
+  function spawn(x, y, spread) {
+    var o = makeObject(), rot = Math.random() * 52 - 26, rx = Math.random() * 30 - 15, ry = Math.random() * 30 - 15;
+    function T(r, a, b, sc, y) { return 'perspective(520px) translateY(' + y + 'px) rotate(' + r + 'deg) rotateX(' + a + 'deg) rotateY(' + b + 'deg) scale(' + sc + ')'; }
+    var dx = spread ? (Math.random() * 2 - 1) * spread : 0, dy = spread ? (Math.random() * 2 - 1) * spread * .7 : 0;
+    o.style.left = x + dx + 'px'; o.style.top = y + dy + 'px';
+    document.body.appendChild(o); live.push(o);
+    animate(o, { transform: [T(rot - 40, 0, 0, .25, 26), T(rot, rx, ry, 1, 0)], opacity: [0, 1] }, { duration: .6, easing: [.34, 1.56, .64, 1] });
+    setTimeout(function () {
+      animate(o, { transform: [T(rot, rx, ry, 1, 0), T(rot + 14, rx, ry, .6, -30)], opacity: [1, 0] }, { duration: .5, easing: 'ease-in' }).finished.then(function () { drop(o); }, function () { drop(o); });
+    }, 1500 + Math.random() * 900);
+    while (live.length > 26) { live.shift().remove(); }
+  }
+  function ring(x, y) {
+    var r = document.createElement('i'); r.className = 'fx fx-ring'; r.style.left = x - 40 + 'px'; r.style.top = y - 40 + 'px'; document.body.appendChild(r);
+    animate(r, { transform: ['rotateX(68deg) scale(.15)', 'rotateX(68deg) scale(2.6)'], opacity: [.95, 0] }, { duration: .7, easing: [.2, .7, .3, 1] }).finished.then(function () { r.remove(); });
+  }
+  function trail() {
+    if (coarse) return;
+    PHOTOS.forEach(function (u) { var i = new Image(); i.src = u; });
+    var lx = -999, ly = -999, hero = document.querySelector('.hero');
+    addEventListener('pointermove', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      if (!hero) return;
+      var r = hero.getBoundingClientRect();
+      if (e.clientY < 96 || e.clientY < r.top || e.clientY > r.bottom) return;
+      if (Math.hypot(e.clientX - lx, e.clientY - ly) < 120) return;
+      lx = e.clientX; ly = e.clientY; spawn(lx, ly, 0);
+    }, { passive: true });
   }
   function clickBurst() {
     addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
-      burst3d(e.clientX, e.clientY, e.target.closest('.btn,.proj-link,.pub-link,#toTop,.tag,.nav-links a,.foot-social a') ? 14 : 10);
+      ring(e.clientX, e.clientY);
+      var n = e.target.closest('.btn,.proj-link,.pub-link,#toTop,.tag,.nav-links a,.foot-social a') ? 6 : 5;
+      for (var i = 0; i < n; i++) spawn(e.clientX, e.clientY, 90);
     });
   }
 
-  ready(function () { sectionTilt(); cubes(); hoverTilt(); clickBurst(); });
+  ready(function () { sectionTilt(); cubes(); hoverTilt(); trail(); clickBurst(); });
 })();
