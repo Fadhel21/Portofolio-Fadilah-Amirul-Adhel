@@ -1,5 +1,5 @@
 (function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
 
   // mark loaded -> hero entrance + counters
   window.addEventListener('load', function () { document.body.classList.add('loaded'); });

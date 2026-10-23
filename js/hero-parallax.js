@@ -1,6 +1,6 @@
 /* sky-hero parallax: pointer + scroll */
 (function () {
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var hero = document.querySelector('.hero'); if (!hero || reduce) return;
   var items = [].slice.call(hero.querySelectorAll('[data-par]'));
   var px = 0, py = 0, sy = 0, raf = null;

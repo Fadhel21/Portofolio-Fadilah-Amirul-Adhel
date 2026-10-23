@@ -3,7 +3,7 @@
    boot-in reveals, HUD chips, XP/level bar, click-burst loot
    ============================================================ */
 (function () {
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var coarse = matchMedia('(pointer:coarse)').matches;
   var POP = [0.34, 1.56, 0.64, 1];       // back-out: overshoot "pop"
   var EO  = [0.23, 1, 0.32, 1];

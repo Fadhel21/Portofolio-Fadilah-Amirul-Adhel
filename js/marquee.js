@@ -1,6 +1,6 @@
 /* ============ marquee ============ */
 (function () {
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
 
   /* ---- marquee: seamless loop + scroll-velocity boost ---- */
   (function () {

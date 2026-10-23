@@ -358,7 +358,7 @@ footer{ border-top:1px solid var(--line); padding:3rem clamp(1.1rem,4vw,3rem) 2.
   .pub-grid{ grid-template-columns:1fr; }
   .edu-card{ flex-direction:column; gap:1.1rem; }
 }
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   html{ scroll-behavior:auto; }
   .reveal{ opacity:1 !important; translate:none !important; transition:none !important; }
   .hero .hero-photo,.hero h1,.hero .e-tag,.hero .e-role,.hero .lead,.hero .hero-cta,.hero .hero-contacts,.hero .console{ opacity:1 !important; }
@@ -498,7 +498,7 @@ img[data-fade].ok{ opacity:1; }
 /* ---- motion-driven reveal default ----------------------- */
 html.js .m-hide{ opacity:0; }
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   html.js .m-hide{ opacity:1 !important; }
   .btn::after{ display:none; }
   .spot{ display:none; }
@@ -673,7 +673,7 @@ html.js .m-hide{ opacity:0; }
   .note{ right:0; top:auto; bottom:6%; }
   .hero h1{ font-size:clamp(3rem,17vw,5.4rem); }
 }
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   .cl,.mon,.polaroid,.note,.float{ animation:none !important; }
 }
 
@@ -962,7 +962,7 @@ html.js .m-hide{ opacity:0; }
 .hero .kpi--time .lbl{ margin:0 0 .35rem; }
 .hero .clock{ font-family:var(--mono); font-size:.68rem; letter-spacing:1px; color:#2C5BFF; margin-top:.35rem; }
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   .marquee__track{ animation:none !important; }
   .trail{ display:none; }
 }
@@ -1020,7 +1020,7 @@ html.js .m-hide{ opacity:0; }
 body.is-pressing{ user-select:none; -webkit-user-select:none; }
 @media (pointer:coarse){ .trail{ display:none; } }
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   .mouse__dot,.blob{ animation:none !important; }
   .trail{ display:none; }
 }
@@ -1325,7 +1325,7 @@ body::before{
 .fx{ position:fixed; left:0; top:0; z-index:700; width:8px; height:8px; pointer-events:none; border-radius:2px;
   will-change:transform,opacity; }
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   .chip{ opacity:1 !important; } .chip > span{ animation:none; }
   .hero h1:hover,.sec-title:hover,.contact__title:hover,.xp.up{ animation:none; }
   .chip .caret{ animation:none; }
@@ -1378,7 +1378,7 @@ footer{ background:rgba(8,6,20,.96); }
 @media (max-width:760px){ .route button span{ display:none; } .route button.act span{ display:none; } }
 
 @media (max-width:760px){ .waypoint{ height:clamp(380px,64svh,560px); } }
-@media (prefers-reduced-motion:reduce){ .wp__go i{ animation:none; } }
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){ .wp__go i{ animation:none; } }
 
 /* readable content over the map: light veil + solid glass cards */
 .section,.contact,.words{ background:linear-gradient(180deg,rgba(8,6,20,.74),rgba(8,6,20,.82)); }
@@ -1553,7 +1553,7 @@ html.dlg-open .waypoint .wp > *{ pointer-events:none; }
   .dl-tools{ grid-template-columns:repeat(2,1fr); }
   .dlg__nav small{ display:none; }
 }
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce) and (min-width:99999px){
   .wp__open,.dl-card,.dl-btn,.dlg__x,.pv__ind{ transition:none; }
 }
 

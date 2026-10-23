@@ -7,7 +7,7 @@
   if (!cv || !hero) return;
   var ctx = cv.getContext('2d', { alpha: false });
   var imgs = new Array(FRAME_COUNT), ready = 0, cur = 0, target = 0, drawn = -1, raf = null;
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var fill = document.getElementById('loaderFill'), pct = document.getElementById('loaderPct'),
       box = document.getElementById('loader');
 

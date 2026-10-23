@@ -3,7 +3,7 @@
    Graceful fallback to IntersectionObserver if the CDN is blocked.
    ============================================================ */
 (function () {
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var EO = [0.23, 1, 0.32, 1];          // ease-out-quint (entering)
   var EIO = [0.645, 0.045, 0.355, 1];   // ease-in-out-cubic (moving)
 

@@ -3,7 +3,7 @@
    (project viewer for Project Lab, quest cards for the other stages)
    ============================================================ */
 (function () {
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var EO = 'cubic-bezier(.23,1,.32,1)', EIN = 'cubic-bezier(.55,.06,.68,.19)', POP = 'cubic-bezier(.34,1.56,.64,1)';
   var ST = [
     { n: 'Project Lab', a: '#A65CFF' }, { n: 'Trophy Room', a: '#FFD34F' }, { n: 'The Workshop', a: '#FF4FD8' },

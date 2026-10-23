@@ -16,7 +16,7 @@
   var wps = [].slice.call(document.querySelectorAll('.waypoint'));
   var hero = document.querySelector('.hero');
   if (!cv || !wps.length || !hero) return;
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = false; /* animations stay on even if the OS asks for reduced motion */
   var TAU = Math.PI * 2, N = wps.length;
 
   try { await Promise.race([Promise.all([document.fonts.load('700 40px Oswald'), document.fonts.load('40px "Press Start 2P"')]), new Promise(function (r) { setTimeout(r, 2000); })]); } catch (e) {}
