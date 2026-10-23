@@ -7,6 +7,7 @@
   var coarse = matchMedia('(pointer:coarse)').matches;
   var POP = [0.34, 1.56, 0.64, 1];       // back-out: overshoot "pop"
   var EO  = [0.23, 1, 0.32, 1];
+  var GLYPHS = ['</>', '{ }', 'AI', '01', '10', 'LLM', 'RAG', '#', '[ ]', 'fn()', 'SQL', '>_', 'n8n', '✦'];
   var COLORS = ['#B98CFF', '#7C4DFF', '#FF4FD8', '#3FE0FF', '#FFD34F'];
 
   function ready(fn){ if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
@@ -80,9 +81,9 @@
     n = n || 10;
     for (var i = 0; i < n; i++) {
       var p = document.createElement('i'); p.className = 'fx';
-      var s = 5 + Math.random() * 6, col = COLORS[i % COLORS.length];
-      p.style.width = p.style.height = s + 'px';
-      p.style.background = col; p.style.boxShadow = '0 0 10px ' + col;
+      var col = COLORS[i % COLORS.length];
+      p.textContent = GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+      p.style.fontSize = (12 + Math.random() * 8) + 'px'; p.style.color = col; p.style.textShadow = '0 0 10px ' + col;
       document.body.appendChild(p);
       var ang = (Math.PI * 2 * i) / n + Math.random() * .6, dist = 40 + Math.random() * 70;
       var dx = Math.cos(ang) * dist, dy = Math.sin(ang) * dist - 24;

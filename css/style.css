@@ -1632,3 +1632,6 @@ html.dlg-open .gfx,html.dlg-open .maphint{ opacity:0 !important; pointer-events:
 .tool--text::after{ content:''; position:absolute; left:.5rem; top:50%; width:5px; height:5px; margin-top:-2.5px; border-radius:2px; background:var(--accent,#B98CFF); box-shadow:0 0 8px rgba(185,140,255,.7); }
 @media (max-width:700px){ .skills--groups .tools-grid{ grid-template-columns:repeat(2,1fr); } }
 .dl-tool img.mono{ filter:invert(1); }
+
+/* click burst: IT / AI glyphs instead of plain squares */
+.fx{ width:auto; height:auto; background:none; border-radius:0; box-shadow:none; font-family:var(--mono,ui-monospace,Consolas,monospace); font-weight:700; line-height:1; white-space:nowrap; }
