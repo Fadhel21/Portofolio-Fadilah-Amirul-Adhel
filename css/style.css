@@ -1633,5 +1633,18 @@ html.dlg-open .gfx,html.dlg-open .maphint{ opacity:0 !important; pointer-events:
 @media (max-width:700px){ .skills--groups .tools-grid{ grid-template-columns:repeat(2,1fr); } }
 .dl-tool img.mono{ filter:invert(1); }
 
-/* click burst: IT / AI glyphs instead of plain squares */
-.fx{ width:auto; height:auto; background:none; border-radius:0; box-shadow:none; font-family:var(--mono,ui-monospace,Consolas,monospace); font-weight:700; line-height:1; white-space:nowrap; }
+/* ---- FM 3D layer ---- */
+.fx.fx-shard{ left:0; top:0; will-change:transform,opacity; }
+.fx.fx-ring{ width:80px; height:80px; border-radius:50%; border:2px solid #B98CFF; box-shadow:0 0 18px #7C4DFF, inset 0 0 14px #7C4DFF66; background:none; }
+.fm-has-cube{ position:relative; }
+.fm-cube{ position:absolute; right:clamp(0rem,3vw,2.5rem); top:50%; width:var(--s); height:var(--s); margin-top:calc(var(--s) / -2); perspective:520px; pointer-events:none; z-index:1; }
+.fm-cube__in{ position:relative; width:100%; height:100%; transform-style:preserve-3d; }
+.fm-cube__in i{ position:absolute; inset:0; border:1.5px solid var(--c); background:linear-gradient(135deg,color-mix(in srgb,var(--c) 28%,transparent),rgba(255,255,255,.04)); box-shadow:inset 0 0 14px color-mix(in srgb,var(--c) 45%,transparent), 0 0 12px color-mix(in srgb,var(--c) 40%,transparent); backface-visibility:visible; }
+.fm-cube__in b{ position:absolute; left:50%; top:50%; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:4px; background:var(--c); box-shadow:0 0 22px var(--c); transform:translateZ(0); }
+@media (max-width:700px){ .fm-cube{ display:none; } }
+/* cards: layered depth when tilted */
+.proj-card:hover .proj-thumb,.pub-card:hover .pub-thumb{ transform:translateZ(34px) scale(.97); box-shadow:0 18px 30px -10px rgba(0,0,0,.55); }
+.proj-card:hover .proj-body h3,.proj-card:hover .proj-tool{ transform:translateZ(26px); }
+.proj-card:hover .tags{ transform:translateZ(18px); }
+.proj-thumb,.proj-body h3,.proj-tool,.tags{ transition:transform .45s cubic-bezier(.23,1,.32,1), box-shadow .45s; }
+.edu-card:hover,.cert:hover,.tool:hover{ box-shadow:0 20px 34px -14px rgba(120,70,255,.55); }

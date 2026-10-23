@@ -117,6 +117,6 @@
   }
 
   ready(function () {
-    bootReveal(); hudChips(); xpHud(); konami(); clickBurst();
+    bootReveal(); hudChips(); xpHud(); konami();
   });
 })();

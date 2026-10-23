@@ -106,8 +106,8 @@
       }
       el.addEventListener('pointermove', function (e) {
         var r = el.getBoundingClientRect();
-        tx = (((e.clientX - r.left) / r.width) - .5) * 5.5;
-        ty = (.5 - ((e.clientY - r.top) / r.height)) * 5.5;
+        tx = (((e.clientX - r.left) / r.width) - .5) * 9;
+        ty = (.5 - ((e.clientY - r.top) / r.height)) * 9;
         if (!raf) raf = requestAnimationFrame(paint);
       }, { passive: true });
       el.addEventListener('pointerleave', function () { el.style.transform = ''; });
