@@ -97,7 +97,7 @@
   function clickBurst(){
     addEventListener('pointerdown', function (e) {
       if (e.button !== 0) return;
-      if (e.target.closest('.btn,.proj-link,.pub-link,#toTop,.tag,.nav-links a,.foot-social a')) burst(e.clientX, e.clientY, 10);
+      burst(e.clientX, e.clientY, e.target.closest('.btn,.proj-link,.pub-link,#toTop,.tag,.nav-links a,.foot-social a') ? 14 : 9);
     });
   }
 
