@@ -1652,8 +1652,6 @@ html.dlg-open .gfx,html.dlg-open .maphint{ opacity:0 !important; pointer-events:
 /* ---- 3D object trail (polaroids, stickers, tags, notes) ---- */
 .fxo{ position:fixed; z-index:640; pointer-events:none; translate:-50% -50%; transform-origin:50% 50%; will-change:transform,opacity;
   filter:drop-shadow(0 14px 14px rgba(20,10,60,.38)) drop-shadow(0 2px 3px rgba(20,10,60,.3)); }
-.fxo-polaroid{ width:150px; padding:8px 8px 30px; background:linear-gradient(160deg,#fff,#f3eefb); border-radius:3px; }
-.fxo-polaroid img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; object-position:left top; background:#ddd; }
 .fxo-sticker{ width:84px; height:84px; padding:14px; background:linear-gradient(150deg,#fff,#ece6ff); border:5px solid #fff; border-radius:24px; box-sizing:border-box; }
 .fxo-sticker img{ display:block; width:100%; height:100%; object-fit:contain; }
 .fxo-badge{ width:96px; height:96px; display:grid; place-items:center; background:radial-gradient(circle at 32% 28%,#fff9,transparent 55%),var(--bg,#8E8CF0); filter:none; }

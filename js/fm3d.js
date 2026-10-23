@@ -3,7 +3,7 @@
    1. sections tilt into view with scroll-linked 3D rotation
    2. spinning glass cubes floating next to every section title
    3. deep 3D hover tilt (with layered depth) on tiles & cards
-   4. object trail in the hero + click burst: 3D polaroids, stickers, tags and notes
+   4. object trail in the hero + click burst: 3D stickers, badges, tags and notes
    ============================================================ */
 (function () {
   var M = window.Motion;
@@ -74,9 +74,8 @@
     });
   }
 
-  /* ---------- 4. 3D object trail + click burst (polaroids, stickers, tags, notes) ---------- */
+  /* ---------- 4. 3D object trail + click burst (stickers, badges, tags, notes) ---------- */
   var L = 'https://cdn.jsdelivr.net/npm/@lobehub/icons-static-svg@latest/icons/';
-  var PHOTOS = ['assets/img/profile.jpg', 'assets/img/projects/hris-2.jpg', 'assets/img/projects/crm-2.png', 'assets/img/projects/erp-2.jpg', 'assets/img/projects/pos-3.png', 'assets/img/projects/xl-1.png', 'assets/img/projects/pbi-1.png', 'assets/img/projects/fnb-1.png'];
   var LOGOS = ['claude-color', 'openai', 'gemini-color', 'n8n-color', 'huggingface-color', 'langchain-color', 'meta-color', 'deepseek-color', 'claudecode-color', 'ollama', 'cursor'];
   var TAGS = ['AI Developer', 'AI Automation', 'AI Engineer', 'Data Engineer', 'AI Data Analyst', 'Business Intelligence'];
   var NOTES = ['2026', 'n8n', 'RAG', 'LLM', 'MCP', 'AI'];
@@ -94,14 +93,13 @@
 
   function makeObject() {
     var t = Math.random(), o;
-    if (t < .30) { o = box('fxo fxo-polaroid'); o.appendChild(img(pick(PHOTOS))); }
-    else if (t < .52) { o = box('fxo fxo-sticker'); o.appendChild(img(L + pick(LOGOS) + '.svg')); }
-    else if (t < .72) {
+    if (t < .34) { o = box('fxo fxo-sticker'); o.appendChild(img(L + pick(LOGOS) + '.svg')); }
+    else if (t < .62) {
       o = box('fxo fxo-badge'); o.style.clipPath = STAR; o.style.setProperty('--bg', pick(BADGE_BG));
       var k = Math.floor(Math.random() * 3);
       o.innerHTML = k === 0 ? CODE_SVG : '<span>' + (k === 1 ? 'AI' : '{ }') + '</span>';
     }
-    else if (t < .88) { o = box('fxo fxo-tag'); o.textContent = pick(TAGS); }
+    else if (t < .84) { o = box('fxo fxo-tag'); o.textContent = pick(TAGS); }
     else { o = box('fxo fxo-note', '<i></i><span>' + pick(NOTES) + '</span>'); }
     return o;
   }
@@ -124,7 +122,6 @@
   }
   function trail() {
     if (coarse) return;
-    PHOTOS.forEach(function (u) { var i = new Image(); i.src = u; });
     var lx = -999, ly = -999, hero = document.querySelector('.hero');
     addEventListener('pointermove', function (e) {
       if (e.pointerType && e.pointerType !== 'mouse') return;
